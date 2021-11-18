@@ -243,6 +243,14 @@ WEATHER SECTION
   }
 }
 
+.current-weather {
+  background: lightblue;
+  width: 100%;
+  width: 90%;
+  padding: var(--padding-standard) var(--padding-large);
+  padding-top: 0;
+}
+
 /**********
 FORECAST LIST
 **********/
@@ -262,9 +270,8 @@ FORECAST LIST
   }
 }
 
-.forecast-item {
+.forecast-card {
   width: 150px;
-  background: limegreen;
   padding: var(--padding-extra-small);
   line-height: 2;
 }
