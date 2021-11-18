@@ -119,8 +119,11 @@ CITIES SECTION
   margin: 0 auto;
   min-width: 300px;
   width: 300px;
-  padding: 0 1rem;
+  padding: 0 var(--padding-standard);
   height: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap-standard);
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -199,8 +202,31 @@ input[name='city-input']:focus + .btn-search {
 }
 
 /* CITIES LIST */
+.btn-prev-cities {
+  margin: 0 auto;
+  width: 12rem;
+  height: 2rem;
+  border: none;
+  background: var(--primary-blue);
+  color: white;
+  font-size: 1rem;
+  box-shadow: var(--box-shadow-one);
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 769px) {
+  .btn-prev-cities {
+    display: none;
+  }
+}
+
+.btn-prev-cities:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 200ms ease-in-out;
+}
+
 .cities-list {
-  padding-top: var(--padding-standard);
   padding-bottom: var(--padding-standard);
   display: flex;
   flex-direction: column;
@@ -216,7 +242,6 @@ input[name='city-input']:focus + .btn-search {
   line-height: 2rem;
   width: 100%;
   text-align: center;
-
   box-shadow: var(--box-shadow-two);
 }
 
