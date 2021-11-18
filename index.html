@@ -5,9 +5,122 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div class="container">
+      <header class="flex flex-center">
+        <h1 class="text-center">weather dashboard</h1>
+      </header>
+      <main>
+        <section class="cities">
+          <!--  -->
+          <form class="flex flex-column align-center">
+            <label for="city-input">search for a city</label>
+            <div class="input-container">
+              <input type="text" placeholder="manchester" id="city-input" />
+              <button class="btn btn-search">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+          <ul class="cities-list flex flex-column align-center">
+            <li>city</li>
+            <li>city</li>
+            <li>city</li>
+            <li>city</li>
+          </ul>
+        </section>
+        <section class="weather">
+          <section class="current-weather">
+            <!--  -->
+            <h2>city name + date</h2>
+            <ul>
+              <li>temp</li>
+              <li>wind</li>
+              <li>humidity</li>
+              <li>uv index</li>
+            </ul>
+          </section>
+          <section">
+            <!--  -->
+            <ul class="forecast-list">
+              <!-- single item -->
+              <li class="forecast-item">
+                <h3>date</h3>
+                <p>icon</p>
+                <ul>
+                  <li>temp</li>
+                  <li>wind</li>
+                  <li>humidity</li>
+                  <!-- <li>uv index</li> -->
+                </ul>
+              </li>
+              <!-- end of single item -->
+              <!-- single item -->
+              <li class="forecast-item">
+                <h3>date</h3>
+                <p>icon</p>
+                <ul>
+                  <li>temp</li>
+                  <li>wind</li>
+                  <li>humidity</li>
+                  <!-- <li>uv index</li> -->
+                </ul>
+              </li>
+              <!-- end of single item -->
+              <!-- single item -->
+              <li class="forecast-item">
+                <h3>date</h3>
+                <p>icon</p>
+                <ul>
+                  <li>temp</li>
+                  <li>wind</li>
+                  <li>humidity</li>
+                  <!-- <li>uv index</li> -->
+                </ul>
+              </li>
+              <!-- end of single item -->
+              <!-- single item -->
+              <li class="forecast-item">
+                <h3>date</h3>
+                <p>icon</p>
+                <ul>
+                  <li>temp</li>
+                  <li>wind</li>
+                  <li>humidity</li>
+                  <!-- <li>uv index</li> -->
+                </ul>
+              </li>
+              <!-- end of single item -->
+              <!-- single item -->
+              <li class="forecast-item">
+                <h3>date</h3>
+                <p>icon</p>
+                <ul>
+                  <li>temp</li>
+                  <li>wind</li>
+                  <li>humidity</li>
+                  <!-- <li>uv index</li> -->
+                </ul>
+              </li>
+              <!-- end of single item -->
+            </ul>
+          </section>
+        </section>
+      </main>
+      <footer class="flex align-center justify-center">
+          <p>&copy; 2021 All Rights Reserved</p>
+      </footer>
+    </div>
     <!-- javascript -->
     <script src="./js/app.js"></script>
   </body>

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-default-color);
+}
+
+/**********
+VARIABLES
+**********/
+:root {
+  /* DIMENSIONS */
+  --max-width: 800px;
+
+  /* COLORS */
+  --text-default-color: #222222;
+  --white: #ffffff;
+  --grey: #dddddd;
+  --dark-grey: #c4c4c4;
+
+  /* PADDING */
+  --padding-slight: 0.2rem;
+  --padding-extra-small: 0.5rem;
+  --padding-small: 0.8rem;
+  --padding-standard: 1rem;
+  --padding-large: 1.5rem;
+
+  /* MARGIN */
+  --margin-standard: 1rem;
+
+  /* ROW GAP */
+  --row-gap-standard: 1rem;
+  --row-gap-double: 2rem;
+
+  /* FONT SIZE */
+  --font-size-standard: 1rem;
+  --font-size-large: 1.2rem;
+  --font-size-extra-large: 1.5rem;
+  --font-size-title: 3rem;
+  --font-size-title-small: 2.5rem;
+
+  /* BUTTONS */
+  --button-width: 12rem;
+  --button-width-small: 10rem;
+
+  /* BORDERS */
+  --btn-border: 0.0625rem solid var(--text-default-color);
+}
+
+/**********
+FLEX UTILS
+**********/
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/**********
+TEXT UTILS
+**********/
+.text-center {
+  text-align: center;
+}
+
+/**********
+HEADER
+**********/
+.container > header {
+  height: 4rem;
+  background: rgb(80, 195, 248);
+}
+
+/**********
+MAIN
+**********/
+main {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main > * {
+  width: 100%;
+}
+
+/**********
+WEATHER SECTION
+**********/
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--row-gap-standard);
+  padding: 1rem 0;
+}
+
+/**********
+FORECAST LIST
+**********/
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap-standard);
+}
+
+/**********
+FOOTER
+**********/
+footer {
+  height: 4rem;
+}
