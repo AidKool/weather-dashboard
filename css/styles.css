@@ -51,6 +51,7 @@ VARIABLES
   /* BOX SHADOW */
   --box-shadow-one: 0px 1px 4px rgba(0, 0, 0, 0.16);
   --box-shadow-two: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --box-shadow-three: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 }
 
 /**********
@@ -115,8 +116,18 @@ main {
 CITIES SECTION
 **********/
 .cities {
+  margin: 0 auto;
   min-width: 300px;
+  width: 300px;
+  padding: 0 1rem;
   height: auto;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .cities {
+    min-width: 400px;
+    width: 400px;
+  }
 }
 
 .cities input {
@@ -133,6 +144,7 @@ CITIES SECTION
 
 .input-container {
   display: flex;
+  width: 100%;
   column-gap: 0;
 }
 
@@ -144,6 +156,7 @@ CITIES SECTION
 }
 
 input[name='city-input'] {
+  width: 85%;
   text-transform: capitalize;
   font-size: var(--font-size-standard);
 }
@@ -160,11 +173,21 @@ input[name='city-input']:focus + .btn-search {
 }
 
 .btn-search {
-  padding: 0 0.4rem;
+  padding: 0;
+  width: 15%;
   border: 1px solid var(--light-grey);
   border-left: 0;
   border-radius: 0 5px 5px 0;
   background: var(--primary-blue);
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  input[name='city-input'] {
+    width: 90%;
+  }
+  .btn-search {
+    width: 10%;
+  }
 }
 
 .btn-search i {
@@ -182,13 +205,18 @@ input[name='city-input']:focus + .btn-search {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   row-gap: var(--gap-standard);
 }
 
 .city-item {
   background: var(--light-grey);
   border-radius: 5px;
-  padding: 0.25rem 5rem;
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+  text-align: center;
+
   box-shadow: var(--box-shadow-two);
 }
 
