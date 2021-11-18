@@ -15,8 +15,11 @@ VARIABLES
   /* COLORS */
   --text-default-color: #222222;
   --white: #ffffff;
+  --light-grey: #ced4da;
   --grey: #dddddd;
   --dark-grey: #c4c4c4;
+  --primary-blue: #0a5ed7;
+  --light-blue: #89b7f7;
 
   /* PADDING */
   --padding-slight: 0.2rem;
@@ -26,6 +29,8 @@ VARIABLES
   --padding-large: 1.5rem;
 
   /* MARGIN */
+  --margin-extra-small: 0.5rem;
+  --margin-small: 0.8rem;
   --margin-standard: 1rem;
 
   /* FLEX GAP */
@@ -36,15 +41,16 @@ VARIABLES
   --font-size-standard: 1rem;
   --font-size-large: 1.2rem;
   --font-size-extra-large: 1.5rem;
-  --font-size-title: 3rem;
   --font-size-title-small: 2.5rem;
+  --font-size-title: 3rem;
 
   /* BUTTONS */
-  --button-width: 12rem;
   --button-width-small: 10rem;
+  --button-width: 12rem;
 
-  /* BORDERS */
-  --btn-border: 0.0625rem solid var(--text-default-color);
+  /* BOX SHADOW */
+  --box-shadow-one: 0px 1px 4px rgba(0, 0, 0, 0.16);
+  --box-shadow-two: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 /**********
@@ -91,7 +97,7 @@ HEADER
 MAIN
 **********/
 main {
-  padding-top: 1rem;
+  padding-top: var(--padding-standard);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,9 +115,87 @@ main {
 CITIES SECTION
 **********/
 .cities {
-  background: lightblue;
   min-width: 300px;
   height: auto;
+}
+
+.cities input {
+  line-height: 2;
+  border: 1px solid var(--light-grey);
+  border-right: 0;
+  border-radius: 5px 0 0 5px;
+  padding-left: var(--padding-standard);
+  background-clip: padding-box;
+  appearance: none;
+}
+
+/* CITIES SEARCH INPUT */
+
+.input-container {
+  display: flex;
+  column-gap: 0;
+}
+
+.cities label {
+  text-transform: capitalize;
+  margin: var(--margin-extra-small) 0;
+  font-weight: 900;
+  font-size: var(--font-size-extra-large);
+}
+
+input[name='city-input'] {
+  text-transform: capitalize;
+  font-size: var(--font-size-standard);
+}
+
+input[name='city-input']:focus {
+  border-color: var(--light-blue);
+  transition: all 200ms ease-in-out;
+  outline: none;
+}
+
+input[name='city-input']:focus + .btn-search {
+  border-color: var(--light-blue);
+  transition: all 200ms ease-in-out;
+}
+
+.btn-search {
+  padding: 0 0.4rem;
+  border: 1px solid var(--light-grey);
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  background: var(--primary-blue);
+}
+
+.btn-search i {
+  color: white;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+}
+
+/* CITIES LIST */
+.cities-list {
+  padding-top: var(--padding-standard);
+  padding-bottom: var(--padding-standard);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--gap-standard);
+}
+
+.city-item {
+  background: var(--light-grey);
+  border-radius: 5px;
+  padding: 0.25rem 5rem;
+  box-shadow: var(--box-shadow-two);
+}
+
+.city-item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 200ms ease-in-out;
 }
 
 /**********
@@ -122,7 +206,13 @@ WEATHER SECTION
   flex-direction: column;
   align-items: center;
   row-gap: var(--gap-standard);
-  padding: 1rem 0;
+  padding: var(--padding-standard) 0;
+}
+
+@media screen and (min-width: 769px) {
+  .weather {
+    padding-top: 0;
+  }
 }
 
 /**********
@@ -139,15 +229,15 @@ FORECAST LIST
     flex-flow: row wrap;
     justify-content: center;
     gap: var(--gap-standard);
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--padding-standard);
+    padding-right: var(--padding-standard);
   }
 }
 
 .forecast-item {
   width: 150px;
   background: limegreen;
-  padding: 0.5rem;
+  padding: var(--padding-extra-small);
   line-height: 2;
 }
 
