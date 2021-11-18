@@ -244,11 +244,21 @@ WEATHER SECTION
 }
 
 .current-weather {
-  background: lightblue;
   width: 100%;
   width: 90%;
-  padding: var(--padding-standard) var(--padding-large);
-  padding-top: 0;
+  padding: var(--padding-extra-small) var(--padding-large);
+  text-transform: capitalize;
+}
+
+.capitalize {
+  text-transform: uppercase;
+}
+
+.current-weather > ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--margin-standard);
+  row-gap: var(--gap-standard);
 }
 
 /**********
@@ -274,6 +284,7 @@ FORECAST LIST
   width: 150px;
   padding: var(--padding-extra-small);
   line-height: 2;
+  text-transform: capitalize;
 }
 
 /**********
