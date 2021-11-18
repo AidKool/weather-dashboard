@@ -10,7 +10,7 @@ VARIABLES
 **********/
 :root {
   /* DIMENSIONS */
-  --max-width: 800px;
+  --max-width: 1280px;
 
   /* COLORS */
   --text-default-color: #222222;
@@ -28,9 +28,9 @@ VARIABLES
   /* MARGIN */
   --margin-standard: 1rem;
 
-  /* ROW GAP */
-  --row-gap-standard: 1rem;
-  --row-gap-double: 2rem;
+  /* FLEX GAP */
+  --gap-standard: 1rem;
+  --gap-double: 2rem;
 
   /* FONT SIZE */
   --font-size-standard: 1rem;
@@ -94,10 +94,24 @@ main {
   padding-top: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: var(--max-width);
 }
 
-main > * {
-  width: 100%;
+@media screen and (min-width: 769px) {
+  main {
+    flex-direction: row;
+  }
+}
+
+/**********
+CITIES SECTION
+**********/
+.cities {
+  background: lightblue;
+  min-width: 300px;
+  height: auto;
 }
 
 /**********
@@ -107,7 +121,7 @@ WEATHER SECTION
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: var(--row-gap-standard);
+  row-gap: var(--gap-standard);
   padding: 1rem 0;
 }
 
@@ -117,7 +131,24 @@ FORECAST LIST
 .forecast-list {
   display: flex;
   flex-direction: column;
-  row-gap: var(--row-gap-standard);
+  row-gap: var(--gap-standard);
+}
+
+@media screen and (min-width: 481px) {
+  .forecast-list {
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: var(--gap-standard);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.forecast-item {
+  width: 150px;
+  background: limegreen;
+  padding: 0.5rem;
+  line-height: 2;
 }
 
 /**********
