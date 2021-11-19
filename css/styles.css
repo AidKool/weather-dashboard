@@ -321,6 +321,12 @@ WEATHER SECTION
   row-gap: var(--gap-standard);
 }
 
+@media screen and (min-width: 769px) {
+  .forecast header {
+    align-self: flex-start;
+  }
+}
+
 /**********
 FORECAST LIST
 **********/
