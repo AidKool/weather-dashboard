@@ -11,6 +11,8 @@ VARIABLES
 :root {
   /* DIMENSIONS */
   --max-width: 1280px;
+  --footer-height: 4rem;
+  --title-height: 4rem;
 
   /* COLORS */
   --text-default-color: #222222;
@@ -47,6 +49,9 @@ VARIABLES
   /* BUTTONS */
   --button-width-small: 10rem;
   --button-width: 12rem;
+
+  /* BORDERS */
+  --border-1px-grey: 1px solid var(--text-default-color);
 
   /* BOX SHADOW */
   --box-shadow-one: 0px 1px 4px rgba(0, 0, 0, 0.16);
@@ -90,8 +95,8 @@ TEXT UTILS
 HEADER
 **********/
 .container > header {
-  height: 4rem;
-  background: rgb(80, 195, 248);
+  height: var(--title-height);
+  background: var(--light-blue);
 }
 
 /**********
@@ -101,14 +106,25 @@ main {
   padding-top: var(--padding-standard);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin: 0 auto;
-  max-width: var(--max-width);
+  width: 300px;
+  min-height: 100%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  main {
+    width: 400px;
+  }
 }
 
 @media screen and (min-width: 769px) {
   main {
+    width: 100%;
+    max-width: var(--max-width);
     flex-direction: row;
+    align-items: start;
+    height: fit-content;
+    min-height: calc(100vh - var(--title-height) - var(--footer-height));
   }
 }
 
@@ -117,24 +133,26 @@ CITIES SECTION
 **********/
 .cities {
   margin: 0 auto;
-  min-width: 300px;
-  width: 300px;
+  width: 100%;
   padding: 0 var(--padding-standard);
-  height: auto;
   display: flex;
   flex-direction: column;
   row-gap: var(--gap-standard);
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 769px) {
   .cities {
-    min-width: 400px;
-    width: 400px;
+    min-width: 300px;
+    width: 300px;
+    height: 100%;
+    border: var(--border-1px-grey);
+    margin: var(--margin-standard);
+    margin-top: 0;
   }
 }
 
 .cities input {
-  line-height: 2;
+  line-height: 2rem;
   border: 1px solid var(--light-grey);
   border-right: 0;
   border-radius: 5px 0 0 5px;
@@ -257,9 +275,8 @@ WEATHER SECTION
 .weather {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: var(--gap-standard);
-  padding: var(--padding-standard) 0;
+  padding: 0;
 }
 
 @media screen and (min-width: 769px) {
@@ -268,11 +285,25 @@ WEATHER SECTION
   }
 }
 
+.weather header {
+  font-size: var(--font-size-standard);
+}
+
+.weather > * {
+  width: 100%;
+}
+
 .current-weather {
   width: 100%;
-  width: 90%;
-  padding: var(--padding-extra-small) var(--padding-large);
+  padding: var(--padding-standard);
   text-transform: capitalize;
+  border: var(--border-1px-grey);
+}
+
+@media screen and (min-width: 769px) {
+  .weather {
+    padding: 0 var(--padding-standard);
+  }
 }
 
 .capitalize {
@@ -285,6 +316,17 @@ WEATHER SECTION
   margin-top: var(--margin-standard);
   row-gap: var(--gap-standard);
 }
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--gap-standard);
+}
+
+
+
+
 
 /**********
 FORECAST LIST
@@ -307,14 +349,21 @@ FORECAST LIST
 
 .forecast-card {
   width: 150px;
+  border: var(--border-1px-grey);
   padding: var(--padding-extra-small);
-  line-height: 2;
+  line-height: 2rem;
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 769px) {
+  .forecast-card {
+    width: 150px;
+  }
 }
 
 /**********
 FOOTER
 **********/
 footer {
-  height: 4rem;
+  height: var(--footer-height);
 }
