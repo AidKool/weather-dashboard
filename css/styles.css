@@ -60,6 +60,13 @@ VARIABLES
 }
 
 /**********
+UTILS
+**********/
+.hidden {
+  display: none;
+}
+
+/**********
 FLEX UTILS
 **********/
 .flex {
@@ -305,6 +312,10 @@ WEATHER SECTION
 
 .capitalize {
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 .current-weather > ul {
