@@ -40,82 +40,22 @@
           </ul>
         </section>
         <section class="weather">
-          <section class="current-weather">
-            <h2>city name + date + icon</h2>
-            <ul>
-              <li>temp</li>
-              <li>wind</li>
-              <li>humidity</li>
-              <li><span class="capitalize">uv</span> index</li>
-            </ul>
-          </section>
-          <section class="forecast">
-            <header><h2>5 day forecast</h2></header>
-            <ul class="forecast-list">
-              <!-- single item -->
-              <li class="forecast-card">
-                <h3>date</h3>
-                <ul>
-                  <li>icon</li>
-                  <li>temp</li>
-                  <li>wind</li>
-                  <li>humidity</li>
-                </ul>
-              </li>
-              <!-- end of single item -->
-              <!-- single item -->
-              <li class="forecast-card">
-                <h3>date</h3>
-                <ul>
-                  <li>icon</li>
-                  <li>temp</li>
-                  <li>wind</li>
-                  <li>humidity</li>
-                </ul>
-              </li>
-              <!-- end of single item -->
-              <!-- single item -->
-              <li class="forecast-card">
-                <h3>date</h3>
-                <ul>
-                  <li>icon</li>
-                  <li>temp</li>
-                  <li>wind</li>
-                  <li>humidity</li>
-                </ul>
-              </li>
-              <!-- end of single item -->
-              <!-- single item -->
-              <li class="forecast-card">
-                <h3>date</h3>
-                <ul>
-                  <li>icon</li>
-                  <li>temp</li>
-                  <li>wind</li>
-                  <li>humidity</li>
-                </ul>
-              </li>
-              <!-- end of single item -->
-              <!-- single item -->
-              <li class="forecast-card">
-                <h3>date</h3>
-                <ul>
-                  <li>icon</li>
-                  <li>temp</li>
-                  <li>wind</li>
-                  <li>humidity</li>
-                </ul>
-              </li>
-              <!-- end of single item -->
-            </ul>
-          </section>
+          <section class="current-weather hidden"></section>
+          <section class="forecast"></section>
         </section>
       </main>
       <footer class="flex align-center justify-center">
         <p>&copy; 2021 All Rights Reserved</p>
       </footer>
     </div>
+    <!-- moment js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- javascript -->
-    <script src="./js/app.js"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>

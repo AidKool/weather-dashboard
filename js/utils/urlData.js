@@ -8,6 +8,6 @@ export function getUVIURL(lon, lat) {
   return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&units=metric&appid=${key}`;
 }
 
-export function getForecastURL(city) {
-  return `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`;
+export function getForecastURL(lon, lat) {
+  return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=${key}`;
 }
