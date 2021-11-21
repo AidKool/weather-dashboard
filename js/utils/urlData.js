@@ -5,7 +5,7 @@ export function getWeatherURL(city) {
 }
 
 export function getUVIURL(lon, lat) {
-  return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${key}`;
+  return `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&units=metric&appid=${key}`;
 }
 
 export function getForecastURL(city) {
