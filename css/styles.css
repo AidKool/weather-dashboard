@@ -297,7 +297,7 @@ WEATHER SECTION
   width: 100%;
 }
 
-.current-weather {
+.today-weather {
   width: 100%;
   padding: var(--padding-standard);
   text-transform: capitalize;
@@ -318,7 +318,7 @@ WEATHER SECTION
   text-transform: lowercase;
 }
 
-.current-weather > ul {
+.today-weather > ul {
   display: flex;
   flex-direction: column;
   margin-top: var(--margin-standard);
