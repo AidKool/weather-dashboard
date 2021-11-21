@@ -14,7 +14,7 @@ VARIABLES
   --footer-height: 4rem;
   --title-height: 4rem;
 
-  /* COLORS */
+  /* COLOURS */
   --text-default-color: #222222;
   --white: #ffffff;
   --light-grey: #ced4da;
@@ -22,6 +22,13 @@ VARIABLES
   --dark-grey: #c4c4c4;
   --primary-blue: #0a5ed7;
   --light-blue: #89b7f7;
+
+  /* UV INDEX COLOURS */
+  --uvi-low: #6cb510;
+  --uvi-medium: #f4b50d;
+  --uvi-high: #e55200;
+  --uvi-very-high: #db4a1e;
+  --uvi-extremely-high: #998cfe;
 
   /* PADDING */
   --padding-slight: 0.2rem;
@@ -297,7 +304,7 @@ WEATHER SECTION
   width: 100%;
 }
 
-.current-weather {
+.today-weather {
   width: 100%;
   padding: var(--padding-standard);
   text-transform: capitalize;
@@ -318,7 +325,7 @@ WEATHER SECTION
   text-transform: lowercase;
 }
 
-.current-weather > ul {
+.today-weather > ul {
   display: flex;
   flex-direction: column;
   margin-top: var(--margin-standard);
@@ -336,6 +343,26 @@ WEATHER SECTION
   .forecast header {
     align-self: flex-start;
   }
+}
+
+.uvi-low {
+  background: var(--uvi-low);
+}
+
+.uvi-medium {
+  background: var(--uvi-medium);
+}
+
+.uvi-high {
+  background: var(--uvi-high);
+}
+
+.uvi-very-high {
+  background: var(--uvi-very-high);
+}
+
+.uvi-extremely-high {
+  background: var(--uvi-extremely-high);
 }
 
 /**********

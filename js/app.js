@@ -1,29 +1,33 @@
-import { getWeatherURL, getForecastURL, getUVIURL } from './utils/urlData.js';
+import { getCoordinatesURL, getWeatherDataURL } from './utils/urlData.js';
 import { fetchData } from './utils/fetchData.js';
 
 const form = document.querySelector('.cities form');
-const currentWeather = document.querySelector('.current-weather');
+const currentWeather = document.querySelector('.today-weather');
 const forecast = document.querySelector('.forecast');
 
 form.addEventListener('submit', async function (e) {
   try {
     e.preventDefault();
     const city = e.target.children[1].children[0].value;
-    const currentWeatherData = await getCurrentWeather(city);
-    const { lon, lat } = currentWeatherData.coords;
-    console.log(lon, ' ', lat);
-    const weatherForecast = await getWeatherForecast(lon, lat);
-
-    displayCurrentWeather(currentWeatherData);
-    displayWeatherForecast(weatherForecast);
+    const coords = await getCoordinates(city);
+    const weatherData = await getWeatherData(coords);
+    const todayWeather = weatherData.slice(0, 1)[0];
+    const forecastWeather = weatherData.slice(1);
+    displayTodayWeather(todayWeather, city);
+    displayWeatherForecast(forecastWeather);
   } catch (e) {
     console.log(e);
   }
 });
 
-async function getWeatherForecast(lon, lat) {
-  const forecastData = await fetchData(getForecastURL(lon, lat));
-  const data = [...forecastData.daily].slice(1, 6);
+async function getCoordinates(city) {
+  const data = await fetchData(getCoordinatesURL(city));
+  return data.coord;
+}
+
+async function getWeatherData({ lon, lat }) {
+  const rawData = await fetchData(getWeatherDataURL(lon, lat));
+  const data = [...rawData.daily].slice(0, 6);
   return data.map((item) => {
     return {
       unixTimestamp: item.dt,
@@ -31,8 +35,43 @@ async function getWeatherForecast(lon, lat) {
       temp: item.temp.day,
       wind: item.wind_speed,
       humidity: item.humidity,
+      uvi: item.uvi,
     };
   });
+}
+
+function colourUVI() {
+  const uviElement = document.querySelector('.uvi');
+  const uvi = Number(uviElement.textContent);
+
+  if (uvi <= 2) {
+    uviElement.classList.add('uvi-low');
+  } else if (uvi <= 5) {
+    uviElement.classList.add('uvi-medium');
+  } else if (uvi <= 7) {
+    uviElement.classList.add('uvi-high');
+  } else if (uvi <= 10) {
+    uviElement.classList.add('uvi-very-high');
+  } else {
+    uviElement.classList.add('uvi-extremely-high');
+  }
+}
+
+function displayTodayWeather({ unixTimestamp, temp, humidity, wind, uvi, icon }, city) {
+  const date = moment.unix(unixTimestamp).format('Do MMMM YYYY');
+
+  currentWeather.innerHTML = `
+    <h2>${city}, ${date}</h2>
+      <ul>
+        <li><img src="http://openweathermap.org/img/wn/${icon}.png" alt="weather icon" /></li>
+        <li>temp: ${temp} °c</li>
+        <li>wind: ${wind} <span class="lowercase">m/s</span></li>
+        <li>humidity: ${humidity}%</li>
+        <li="uvi"><span class="capitalize">uv</span> index: <span class="uvi">${uvi}</span></li>
+      </ul>
+    `;
+  colourUVI();
+  currentWeather.classList.remove('hidden');
 }
 
 function displayWeatherForecast(weatherForecast) {
@@ -57,45 +96,4 @@ function displayWeatherForecast(weatherForecast) {
           .join('')}
       </ul>
     `;
-}
-
-async function getCurrentWeather(city) {
-  const weatherData = await fetchData(getWeatherURL(city));
-  const { lon, lat } = weatherData.coord;
-  const { temp, humidity } = weatherData.main;
-  const wind = weatherData.wind.speed;
-  const icon = weatherData.weather[0].icon;
-  const unixTimestamp = weatherData.dt;
-  const uviData = await fetchData(getUVIURL(lon, lat));
-  const uvi = uviData.current.uvi;
-
-  return {
-    city,
-    unixTimestamp,
-    icon,
-    temp,
-    humidity,
-    wind,
-    uvi,
-    coords: {
-      lon,
-      lat,
-    },
-  };
-}
-
-function displayCurrentWeather({ city, unixTimestamp, temp, humidity, wind, uvi, icon }) {
-  const date = moment.unix(unixTimestamp).format('Do MMMM YYYY');
-
-  currentWeather.innerHTML = `
-    <h2>${city}, ${date}</h2>
-      <ul>
-        <li><img src="http://openweathermap.org/img/wn/${icon}.png" alt="weather icon" /></li>
-        <li>temp: ${temp} °c</li>
-        <li>wind: ${wind} <span class="lowercase">m/s</span></li>
-        <li>humidity: ${humidity}%</li>
-        <li><span class="capitalize">uv</span> index: ${uvi}</li>
-      </ul>
-    `;
-  currentWeather.classList.remove('hidden');
 }
