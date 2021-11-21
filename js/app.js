@@ -40,6 +40,23 @@ async function getWeatherData({ lon, lat }) {
   });
 }
 
+function colourUVI() {
+  const uviElement = document.querySelector('.uvi');
+  const uvi = Number(uviElement.textContent);
+
+  if (uvi <= 2) {
+    uviElement.classList.add('uvi-low');
+  } else if (uvi <= 5) {
+    uviElement.classList.add('uvi-medium');
+  } else if (uvi <= 7) {
+    uviElement.classList.add('uvi-high');
+  } else if (uvi <= 10) {
+    uviElement.classList.add('uvi-very-high');
+  } else {
+    uviElement.classList.add('uvi-extremely-high');
+  }
+}
+
 function displayTodayWeather({ unixTimestamp, temp, humidity, wind, uvi, icon }, city) {
   const date = moment.unix(unixTimestamp).format('Do MMMM YYYY');
 
@@ -50,9 +67,10 @@ function displayTodayWeather({ unixTimestamp, temp, humidity, wind, uvi, icon },
         <li>temp: ${temp} °c</li>
         <li>wind: ${wind} <span class="lowercase">m/s</span></li>
         <li>humidity: ${humidity}%</li>
-        <li><span class="capitalize">uv</span> index: ${uvi}</li>
+        <li="uvi"><span class="capitalize">uv</span> index: <span class="uvi">${uvi}</span></li>
       </ul>
     `;
+  colourUVI();
   currentWeather.classList.remove('hidden');
 }
 
