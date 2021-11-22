@@ -7,7 +7,7 @@ const citiesList = document.querySelector('.cities-list');
 citiesList.addEventListener('click', async function (e) {
   const city = e.target.dataset.city;
   if (city) {
-    getAndDisplayWeatherData(city);
+    await getAndDisplayWeatherData(city);
   }
 });
 
@@ -16,7 +16,7 @@ form.addEventListener('submit', async function (e) {
     e.preventDefault();
     const city = e.target.children[1].children[0].value.trim().toLowerCase();
     e.target.children[1].children[0].value = '';
-    getAndDisplayWeatherData(city);
+    await getAndDisplayWeatherData(city);
     addCityToList(city);
   } catch (e) {
     console.log(e);
