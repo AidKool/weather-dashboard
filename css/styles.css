@@ -241,6 +241,7 @@ input[name='city-input']:focus + .btn-search {
   font-size: 1rem;
   box-shadow: var(--box-shadow-one);
   border-radius: 5px;
+  text-transform: capitalize;
 }
 
 @media screen and (min-width: 769px) {
@@ -319,7 +320,7 @@ WEATHER SECTION
 }
 
 .capitalize {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .lowercase {
@@ -344,6 +345,11 @@ WEATHER SECTION
   .forecast header {
     align-self: flex-start;
   }
+}
+
+.uvi {
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
 }
 
 .uvi-low {

@@ -61,6 +61,7 @@ function colourUVI() {
   const uviElement = document.querySelector('.uvi');
   const uvi = Number(uviElement.textContent);
 
+  /* Source for UV index colours: https://www.bbc.com/news/explainers-53178988 */
   if (uvi <= 2) {
     uviElement.classList.add('uvi-low');
   } else if (uvi <= 5) {
