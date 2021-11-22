@@ -231,31 +231,6 @@ input[name='city-input']:focus + .btn-search {
 }
 
 /* CITIES LIST */
-.btn-prev-cities {
-  margin: 0 auto;
-  width: 12rem;
-  height: 2rem;
-  border: none;
-  background: var(--primary-blue);
-  color: white;
-  font-size: 1rem;
-  box-shadow: var(--box-shadow-one);
-  border-radius: 5px;
-  text-transform: capitalize;
-}
-
-@media screen and (min-width: 769px) {
-  .btn-prev-cities {
-    display: none;
-  }
-}
-
-.btn-prev-cities:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  transition: all 200ms ease-in-out;
-}
-
 .cities-list {
   padding-bottom: var(--padding-standard);
   display: flex;
@@ -264,6 +239,12 @@ input[name='city-input']:focus + .btn-search {
   justify-content: center;
   row-gap: var(--gap-standard);
   text-transform: capitalize;
+}
+
+@media screen and (min-width: 769px) {
+  .cities-list {
+    height: auto;
+  }
 }
 
 .city-item {
