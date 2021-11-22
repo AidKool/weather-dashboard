@@ -23,10 +23,10 @@ function displayTodayWeather({ unixTimestamp, temp, humidity, wind, uvi, icon },
     <h2>${city}, ${date}</h2>
       <ul>
         <li><img src="http://openweathermap.org/img/wn/${icon}.png" alt="weather icon" /></li>
-        <li>temp: ${temp} °c</li>
+        <li>temp: ${Math.round(temp)} °c</li>
         <li>wind: ${wind} <span class="lowercase">m/s</span></li>
         <li>humidity: ${humidity}%</li>
-        <li="uvi"><span class="capitalize">uv</span> index: <span class="uvi">${uvi}</span></li>
+        <li="uvi"><span class="uppercase">uv</span> index: <span class="uvi">${uvi}</span></li>
       </ul>
     `;
   colourUVI();
@@ -45,7 +45,7 @@ function displayWeatherForecast(weatherForecast) {
               <h3>${date}</h3>
               <ul>
                 <li><img src="http://openweathermap.org/img/wn/${day.icon}.png" alt="weather icon" /></li>
-                <li>temp: ${day.temp} °c</li>
+                <li>temp: ${Math.round(day.temp)} °c</li>
                 <li>wind: ${day.wind} <span class="lowercase">m/s</span></li>
                 <li>humidity: ${day.humidity}%</li>
               </ul>
