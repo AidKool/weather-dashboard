@@ -1,7 +1,15 @@
+import { getCoordinates, getWeatherData } from './getWeatherData.js';
+
 const currentWeather = document.querySelector('.today-weather');
 const forecast = document.querySelector('.forecast');
 
-export function displayWeatherData(weatherData, city) {
+export async function getAndDisplayWeatherData(city) {
+  const coords = await getCoordinates(city);
+  const weatherData = await getWeatherData(coords);
+  displayWeatherData(weatherData, city);
+}
+
+function displayWeatherData(weatherData, city) {
   const todayWeather = weatherData.slice(0, 1)[0];
   const forecastWeather = weatherData.slice(1);
   displayTodayWeather(todayWeather, city);

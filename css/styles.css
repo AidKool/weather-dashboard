@@ -262,6 +262,7 @@ input[name='city-input']:focus + .btn-search {
   align-items: center;
   justify-content: center;
   row-gap: var(--gap-standard);
+  text-transform: capitalize;
 }
 
 .city-item {
