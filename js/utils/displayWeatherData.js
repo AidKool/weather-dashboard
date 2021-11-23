@@ -17,7 +17,7 @@ function displayWeatherData(weatherData, city) {
 }
 
 function displayTodayWeather({ unixTimestamp, temp, humidity, wind, uvi, icon }, city) {
-  const date = moment.unix(unixTimestamp).format('Do MMMM YYYY');
+  const date = moment.unix(unixTimestamp).format('DD/MM/YYYY');
 
   currentWeather.innerHTML = `
     <h2>${city}, ${date}</h2>
@@ -39,7 +39,7 @@ function displayWeatherForecast(weatherForecast) {
       <ul class="forecast-list">
         ${weatherForecast
           .map((day) => {
-            const date = moment.unix(day.unixTimestamp).format('Do MMMM YYYY');
+            const date = moment.unix(day.unixTimestamp).format('DD/MM/YYYY');
             return `
             <li class="forecast-card">
               <h3>${date}</h3>
