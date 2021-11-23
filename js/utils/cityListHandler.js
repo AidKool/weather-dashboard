@@ -1,3 +1,5 @@
+import { clearBtn } from './clearHistory.js';
+
 let cities = JSON.parse(localStorage.getItem('cities'));
 const citiesList = document.querySelector('.cities-list');
 
@@ -12,6 +14,7 @@ window.addEventListener('DOMContentLoaded', function () {
       })
       .join('')}
     `;
+    showClearBtn();
   }
 });
 
@@ -24,5 +27,10 @@ export function addCityToList(city) {
     cityElement.classList.add('city-item');
     cityElement.textContent = city;
     citiesList.appendChild(cityElement);
+    showClearBtn();
   }
+}
+
+function showClearBtn() {
+  clearBtn.classList.remove('hidden');
 }
