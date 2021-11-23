@@ -10,7 +10,7 @@ retrieving information about cities already searched.
 
 # Screenshot
 
-![weather-dashboard](https://user-images.githubusercontent.com/73796715/142848736-fe11ba56-61b7-40bc-ab0d-d41445454c68.png)
+![weather dashboard](https://user-images.githubusercontent.com/73796715/143056938-b849fe18-b72d-45bf-8d0c-98b37f82add0.png)
 
 # Live site
 
