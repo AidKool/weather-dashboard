@@ -1,21 +1,17 @@
 import { clearBtn } from './clearHistory.js';
 
-let cities = JSON.parse(localStorage.getItem('cities'));
+let cities = JSON.parse(localStorage.getItem('cities')) || [];
 const citiesList = document.querySelector('.cities-list');
 
 window.addEventListener('DOMContentLoaded', function () {
-  if (!cities) {
-    cities = [];
-  } else {
-    citiesList.innerHTML = `
+  citiesList.innerHTML = `
     ${cities
       .map((city) => {
         return `<li class="city-item" data-city="${city}">${city}</li>`;
       })
       .join('')}
     `;
-    showClearBtn();
-  }
+  showClearBtn();
 });
 
 export function addCityToList(city) {
