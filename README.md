@@ -15,3 +15,8 @@ retrieving information about cities already searched.
 # Live site
 
 https://aidkool.github.io/weather-dashboard/
+
+# License
+
+This work is licensed under
+[MIT](https://github.com/AidKool/weather-dashboard/blob/master/LICENSE).
